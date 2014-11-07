@@ -142,15 +142,6 @@ angular.module('starter.controllers', ['services'])
 		{"name": "Website", "price": 20}
 	];
  	//console.log(Request("Info"));
-	 $http.get('http://norfolkart.herokuapp.com/').success(function(data) {
-    $scope.phones = data;
-		console.log(data);
-		return deferred.resolve(data);
-	}).error(function(error) {
-		//Fail our promise.
-		console.log(error);
-		deferred.reject(error);
-	});
 
 	$scope.userName = Auth.currentUser().name || "User";
 	if(Auth.currentUser() === null) {
@@ -214,8 +205,4 @@ angular.module('starter.controllers', ['services'])
 })
 .controller('SellCtrl', function($scope) {
 	console.log("Sell");
-})
-.controller('ServiceCtrl', function($scope, $stateParams) {
-	$scope.test = $stateParams.id;
-	console.log($stateParams.id);
 });

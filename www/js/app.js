@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers'])
+angular.module('starter', ['ionic', 'starter.controllers','chat.controllers'])
 
 //This filter will give us the index of the item in the array or null if not found.
 .filter('messageByExpires', function() {
@@ -56,7 +56,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     .state('service', {
       url: '/service/:id',
       templateUrl: 'templates/service.html',
-      controller: 'ServiceCtrl'
+      controller: 'ChatCtrl'
     })
     .state('listings', {
       url: '/listings',
