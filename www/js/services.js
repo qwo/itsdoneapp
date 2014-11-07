@@ -37,15 +37,16 @@ angular.module('services', [])
     user = JSON.parse(window.localStorage.getItem('user'));
   } catch(ex) { /* Silently fail, no user */ }
 
-  var login = function login(name, password) {
+  var login = function login(email, password) {
     var deferred = $q.defer();
 
     var url = baseUrl + 'login';
-    var postData = { name: name, password: password };
+    var postData = { email: email, password: password };
 
     $http.post(url, postData).success(function(response) {
-      if(response.success && (response.success === true || response.success == "true")) {
-        user = { name: response.name, id: response.id };
+      console.log(response);
+      if(response.local !== []) {
+        user = { name: response.local.email, id: response.id, email: response.local.email };
         window.localStorage.setItem('user', JSON.stringify(user));
         return deferred.resolve(response);
       } else {
@@ -73,25 +74,24 @@ angular.module('services', [])
     logout: logout,
     currentUser: currentUser
   };
-})
-.factory('Request', function Auth($q, $http, param) {
-  console.log($http);
-  var deferred = $q.defer();
-
-  var url = baseUrl + 'login';
-  var postData = { name: name, password: password };
-
-  $http.post(url, postData).success(function(response) {
-  if(response.success && (response.success === true || response.success == "true")) {
-    user = { name: response.name, id: response.id };
-    window.localStorage.setItem('user', JSON.stringify(user));
-    return deferred.resolve(response);
-  } else {
-    return deferred.resolve('No user found');
-  }
-  }).error(function(error) {
-  //Fail our promise.
-  deferred.reject(error);
-  });
-  return "here";
 });
+// .factory('Request', function Auth($q, $http, param) {
+//   var deferred = $q.defer();
+//
+//   var url = baseUrl + 'login';
+//   var postData = { name: name, password: password };
+//
+//   $http.post(url, postData).success(function(response) {
+//   if(response.success && (response.success === true || response.success == "true")) {
+//     user = { name: response.name, id: response.id };
+//     window.localStorage.setItem('user', JSON.stringify(user));
+//     return deferred.resolve(response);
+//   } else {
+//     return deferred.resolve('No user found');
+//   }
+//   }).error(function(error) {
+//   //Fail our promise.
+//   deferred.reject(error);
+//   });
+//   return "here";
+// });

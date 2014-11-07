@@ -3,12 +3,12 @@ angular.module('starter.controllers', ['services'])
 .controller('LoginCtrl', function($scope, $state, Auth) {
 
 	//input model
-	$scope.user = { name: '', password: '' };
+	$scope.user = { name: '', password: '', email: '' };
 
 	$scope.login = function login(user) {
-		Auth.login(user.name, user.password).then(function(data) {
+		Auth.login(user.email, user.password ).then(function(data) {
 			console.log('auth passed.');
-			if(data.success) {
+			if(data.local) {
 				console.log('auth was successful.');
 
 				$state.go('listings');
@@ -37,13 +37,13 @@ angular.module('starter.controllers', ['services'])
 	$scope.userName = Auth.currentUser().name;
 	$scope.messages = [];
 
-///////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////
-//Socket.io listeners
-///////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////
 
-	socket.on('channels', function channels(channels){
+///////////////////////////////////////////////////
+//Socket.io listeners
+///////////////////////////////////////////////////
+
+
+socket.on('channels', function channels(channels){
 		console.log('channels', channels);
 
 		console.log(channels);
@@ -97,11 +97,11 @@ angular.module('starter.controllers', ['services'])
 
 	};
 
-///////////////////////////////////////////////////////////////////////
+
 ///////////////////////////////////////////////////////////////////////
 // Controller methods
 ///////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////
+
 
 	$scope.joinChannel = function joinChannel(channel) {
 		$scope.activeChannel = channel;
