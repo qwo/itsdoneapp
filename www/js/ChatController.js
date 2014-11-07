@@ -6,4 +6,9 @@ angular.module('chat.controllers', ['services'])
   $scope.sayHello = function () {
     console.log("hello!");
   };
+})
+.controller('StagingCtrl', function($scope, $stateParams, Auth) {
+  $scope.sayHello = function () {
+    console.log("hello!");
+  };
 });

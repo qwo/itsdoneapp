@@ -133,28 +133,6 @@ socket.on('channels', function channels(channels){
 	//Auto join the lobby
 	$scope.joinChannel('Coffee');
 })
-.controller('ListingsCtrl', function($scope, $state, $filter, $q, $http, socket, Auth) {
-	//Ensure they are authed first.
-	var deferred = $q.defer();
-	$scope.items = [
-		{"name": "Coffee", "price": 5},
-		{"name": "Math 201","price": 4},
-		{"name": "Website", "price": 20}
-	];
- 	//console.log(Request("Info"));
-
-	$scope.userName = Auth.currentUser().name || "User";
-	if(Auth.currentUser() === null) {
-		$state.go('login');
-		return;
-	}
-
-	$scope.logout = function logout() {
-		Auth.logout();
-		$state.go('login');
-	};
-	return deferred.promise;
-})
 .controller('TestCtrl', function($scope) {
 	$scope.onControllerChanged = function(oldController, oldIndex, newController, newIndex) {
 		console.log('Controller changed', oldController, oldIndex, newController, newIndex);

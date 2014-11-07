@@ -43,11 +43,11 @@ angular.module('starter', ['ionic', 'starter.controllers','chat.controllers'])
       templateUrl: 'templates/menu.html',
       controller: 'AppCtrl'
     })
-    // .state('listings', {
-    //   url: '/listings',
-    //   templateUrl: 'templates/listing.html',
-    //   controller: 'ListingsCtrl'
-    // })
+    .state('staging', {
+      url: '/staging',
+      templateUrl: 'templates/test.html',
+      controller: 'StagingCtrl'
+    })
     .state('login', {
       url: '/login',
       templateUrl: 'templates/login.html',
@@ -60,10 +60,10 @@ angular.module('starter', ['ionic', 'starter.controllers','chat.controllers'])
     })
     .state('listings', {
       url: '/listings',
-      templateUrl: 'templates/test_listings.html',
+      templateUrl: 'templates/listings.html',
       controller: 'TestCtrl'
     });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/login');
+  $urlRouterProvider.otherwise('/listings');
 });
