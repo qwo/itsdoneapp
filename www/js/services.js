@@ -30,17 +30,22 @@ angular.module('services', [])
   };
 })
 
-.factory('Auth', function Auth($q, $http) {
+.factory('Auth', function Auth($q, $http,$location) {
   var user = null;
-
+  
   try {
     user = JSON.parse(window.localStorage.getItem('user'));
   } catch(ex) { /* Silently fail, no user */ }
 
   var login = function login(email, password) {
     var deferred = $q.defer();
-
-    var url = baseUrl + 'login';
+    // Use same service for URL
+    if ($location.path() === 'login'){
+      var url = baseUrl + 'login';
+    }
+    else {
+      var url = baseUrl + 'signup';
+    }
     var postData = { email: email, password: password };
 
     $http.post(url, postData).success(function(response) {
