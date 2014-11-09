@@ -1,7 +1,6 @@
 angular.module('chat.controllers', ['services'])
 
 .controller('ChatCtrl', function($scope, $stateParams, Auth) {
-  $scope.test = $stateParams.id;
   console.log($stateParams.id);
   $scope.sayHello = function () {
     console.log("hello!");
@@ -11,8 +10,9 @@ angular.module('chat.controllers', ['services'])
   $scope.sayHello = function () {
     console.log("hello!");
   };
-});
-.controller('AppCtrl', function($scope, $state, $filter, socket, Auth) {
+})
+.controller('AppCtrl', function($scope, $state, $filter, $stateParams, socket, Auth) {
+  var room = $stateParams.id;
   //Ensure they are authed first.
   if(Auth.currentUser() === null) {
     $state.go('login');
@@ -119,12 +119,14 @@ socket.on('channels', function channels(channels){
   };
 
   $scope.logout = function logout() {
+    user = null;
     Auth.logout();
+    window.localStorage.removeItem('user');
     $state.go('login');
   };
 
   //Auto join the lobby
-  $scope.joinChannel('Coffee');
+  $scope.joinChannel(room);
 })
 .controller('TestCtrl', function($scope) {
   $scope.onControllerChanged = function(oldController, oldIndex, newController, newIndex) {
