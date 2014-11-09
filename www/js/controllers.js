@@ -3,11 +3,10 @@ angular.module('starter.controllers', ['services'])
 .controller('LoginCtrl', function($scope, $state, Auth) {
 
 	//input model
-	$scope.user = { name: '', password: '', email: '' };
+	$scope.user = {password: '', email: '' };
 
 	$scope.login = function login(user) {
 		Auth.login(user.email, user.password ).then(function(data) {
-			console.log('auth passed.');
 			if(data.local) {
 				console.log('auth was successful.');
 

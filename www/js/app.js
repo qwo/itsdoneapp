@@ -55,8 +55,8 @@ angular.module('starter', ['ionic', 'starter.controllers','chat.controllers'])
     })
     .state('service', {
       url: '/service/:id',
-      templateUrl: 'templates/service.html',
-      controller: 'ChatCtrl'
+      templateUrl: 'templates/menu.html',
+      controller: 'AppCtrl'
     })
     .state('signup', {
       url: '/signup',

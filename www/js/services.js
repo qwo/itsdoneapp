@@ -34,6 +34,7 @@ angular.module('services', [])
   var user = null;
 
   try {
+    window.localStorage.clear();
     user = JSON.parse(window.localStorage.getItem('user'));
   } catch(ex) { /* Silently fail, no user */ }
 
@@ -41,7 +42,8 @@ angular.module('services', [])
     var deferred = $q.defer();
     var url;
     // Use same service for URL
-    if ($location.path() === 'login'){
+    console.log("location path", $location.path());
+    if ($location.path() === '/login'){
        url = baseUrl + 'login';
     }
     else {
@@ -50,9 +52,8 @@ angular.module('services', [])
     var postData = { email: email, password: password };
 
     $http.post(url, postData).success(function(response) {
-      console.log(response);
       if(response.local !== []) {
-        user = { name: response.local.email, id: response.id, email: response.local.email };
+        user = { name: response.email, id: response.id, email: response.email };
         window.localStorage.setItem('user', JSON.stringify(user));
         return deferred.resolve(response);
       } else {
@@ -73,6 +74,7 @@ angular.module('services', [])
   var logout = function logout() {
     user = null;
     window.localStorage.removeItem('user');
+    $state.go('login');
   };
 
   return {
