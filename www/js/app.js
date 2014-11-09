@@ -63,6 +63,11 @@ angular.module('starter', ['ionic', 'starter.controllers','chat.controllers', 'a
       templateUrl: 'templates/signup.html',
       controller: 'LoginCtrl'
     })
+    .state('payment', {
+      url: '/payment',
+      templateUrl: 'templates/payment.html',
+      controller: 'StagingCtrl'
+    })
     .state('listings', {
       url: '/listings',
       templateUrl: 'templates/listings.html',
