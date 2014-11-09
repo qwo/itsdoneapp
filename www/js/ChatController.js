@@ -18,7 +18,9 @@ angular.module('chat.controllers', ['services'])
     $state.go('login');
     return;
   }
-
+  $scope.Back = function () {
+    $state.go('listings');
+  };
   //input models
   $scope.draft = { message: '' };
   $scope.channel = { name: '' };
@@ -123,6 +125,7 @@ socket.on('channels', function channels(channels){
     Auth.logout();
     window.localStorage.removeItem('user');
     $state.go('login');
+    return;
   };
 
   //Auto join the lobby
