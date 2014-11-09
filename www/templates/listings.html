@@ -8,7 +8,6 @@
                ng-controller="HomeCtrl">
 
         <ion-header-bar class="bar-positive">
-          <button class="button button-clear" ng-click="newTask()">New</button>
           <h1 class="title">ItsDone</h1>
           <div class="buttons">
            <button class="button button-icon icon ion-log-out" ng-click="logout()"></button>
@@ -31,8 +30,9 @@
 <!--               <img src="../img/venkman.jpg"></img> -->
               {{item.title}}
               <i class="{{item.icon}}"></i>
+              {{item.description}}
               <button class="button button-positive">
-                Buy
+                Connect {{item.price}} 
               </button>
             </a>
             </ion-item>

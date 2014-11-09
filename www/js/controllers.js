@@ -52,6 +52,22 @@ angular.module('starter.controllers', ['services'])
 	$http.get(baseUrl+'api/products').success(function(response) {
 		if(response) {
 			console.log(response);
+			// Create the items
+			for(var i = 0; i < response.length; i++) {
+				$scope.items.push({
+					id: response[i].id,
+					title: response[i].title,
+					description: response[i].description,
+					price: response[i].price,
+					buttons: [{
+						text: 'Done',
+						type: 'button-success',
+					}, {
+						text: 'Delete',
+						type: 'button-danger',
+					}]
+				});
+			}
 			return deferred.resolve(response);
 		} else {
 			return deferred.resolve('No user found');
@@ -61,18 +77,4 @@ angular.module('starter.controllers', ['services'])
 		deferred.reject(error);
 	});
 
-	// Create the items
-	for(var i = 0; i < 10; i++) {
-		$scope.items.push({
-			id: i,
-			title: 'Task ' + (i + 1),
-			buttons: [{
-				text: 'Done',
-				type: 'button-success',
-			}, {
-				text: 'Delete',
-				type: 'button-danger',
-			}]
-		});
-	}
 });

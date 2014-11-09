@@ -7,10 +7,20 @@
 
      <ion-view title="Register">
        <ion-content>
-
-
-
-
-
+        <ion-item ng-repeat="item in items"
+                  item="item"
+                  buttons="item.buttons"
+                  can-delete="true"
+                  can-swipe="true"
+                  on-delete="deleteItem(item)"
+                  class="item" href="#/service/{{item.id}}" >
+<!--               <img src="../img/venkman.jpg"></img> -->
+          {{item.title}}
+          <i class="{{item.icon}}"></i>
+          <button class="button button-positive">
+            Buy
+          </button>
+        </a>
+        </ion-item>
        </ion-content>
      </ion-view>
