@@ -53,7 +53,9 @@ angular.module('services', [])
 
     $http.post(url, postData).success(function(response) {
       if(response.local !== []) {
-        user = { name: response.email, id: response.id, email: response.email };
+        console.log("inside");
+        user = { name: response.local.email, id: response.id, email: response.local.email };
+        console.log(user);
         window.localStorage.setItem('user', JSON.stringify(user));
         return deferred.resolve(response);
       } else {

@@ -51,14 +51,14 @@ socket.on('channels', function channels(channels){
   socket.emit('user:joined', {name: Auth.currentUser().name});
 
   socket.on('user:joined', function(user) {
-    console.log('user:joined');
+    console.log('user:joined', user);
     $scope.messages.push(user);
   });
 
   $scope.listenChannel = function listenChannel (channel) {
     socket.on('messages:channel:' + channel, function messages(messages) {
-      console.log('got messages: ', messages);
-      console.log(messages.length);
+      //console.log('got messages: ', messages);
+      //console.log(messages.length);
       for(var i = 0, j = messages.length; i < j; i++) {
         var message = messages[i];
         console.log('message');
@@ -69,7 +69,7 @@ socket.on('channels', function channels(channels){
     });
 
     socket.on('message:channel:' + channel, function message(message) {
-      console.log('got message: ' + message);
+      //console.log('got message: ' + message);
       if(channel != $scope.activeChannel) {
         return;
       }
