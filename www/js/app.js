@@ -66,7 +66,7 @@ angular.module('starter', ['ionic', 'starter.controllers','chat.controllers'])
     .state('listings', {
       url: '/listings',
       templateUrl: 'templates/listings.html',
-      controller: 'TestCtrl'
+      controller: 'ListingCtrl'
     });
 
   // if none of the above states are matched, use this as the fallback

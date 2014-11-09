@@ -128,7 +128,7 @@ socket.on('channels', function channels(channels){
   //Auto join the lobby
   $scope.joinChannel(room);
 })
-.controller('TestCtrl', function($scope) {
+.controller('ListingCtrl', function($scope) {
   $scope.onControllerChanged = function(oldController, oldIndex, newController, newIndex) {
     console.log('Controller changed', oldController, oldIndex, newController, newIndex);
     console.log(arguments);
