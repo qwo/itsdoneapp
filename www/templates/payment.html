@@ -1,0 +1,44 @@
+<script charset="utf-8">
+      Stripe.setPublishableKey('pk_test_FUqfEymuQqGmJrUbvSuZvv5K')
+</script>
+<ion-nav-bar class="bar-positive nav-title-slide-ios7">
+     <ion-nav-back-button class="button-icon ion-arrow-left-c">
+     </ion-nav-back-button>
+   </ion-nav-bar>
+
+   <ion-nav-view animation="slide-left-right"></ion-nav-view>
+
+     <ion-view title="Register">
+       <ion-content>
+  <form stripe-form="handleStripe" name="myForm" class="list">
+
+              <div class="item item-input item-stacked-label">
+                <label for="">Card number</label>
+                <input type="text" class="input-block-level" ng-model="number" payments-validate="card" payments-format="card" payments-type-model="type" ng-class="myForm.number.$card.type"/>
+              </div>
+
+              <div class="item item-input item-stacked-label">
+                <label for="">Expiry</label>
+                <input type="text" class="input-block-level" ng-model="expiry" payments-validate="expiry" payments-format="expiry" />
+              </div>
+
+              <div class="item item-input item-stacked-label">
+                <label for="">Name on card </label>
+                <input type="text" class="input-block-level">
+              </div>
+
+              <div class="item item-input item-stacked-label">
+                <label for="">CVC</label>
+                <input type="text" class="input-block-level" ng-model="cvc" payments-validate="cvc" payments-format="cvc" payments-type-model="type"/>
+              </div>
+
+              <div class="item item-input item-stacked-label">
+                <button class="button button-block button-positive activated">Submit</button>
+              </div>
+            </form>
+
+
+
+
+       </ion-content>
+     </ion-view>
