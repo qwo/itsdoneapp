@@ -136,35 +136,4 @@ socket.on('channels', function channels(channels){
     console.log('Controller changed', oldController, oldIndex, newController, newIndex);
     console.log(arguments);
   };
-})
-.controller('HomeCtrl', function($scope, $timeout, $ionicModal, $ionicActionSheet) {
-  $scope.items = [];
-
-  $ionicModal.fromTemplateUrl('newTask.html', function(modal) {
-    $scope.settingsModal = modal;
-  });
-
-  $scope.onRefresh = function() {
-    console.log('Refreshing');
-
-    $timeout(function() {
-      $scope.$broadcast('scroll.refreshComplete');
-    }, 1000);
-  };
-
-
-  // Create the items
-  for(var i = 0; i < 10; i++) {
-    $scope.items.push({
-      id: i,
-      title: 'Task ' + (i + 1),
-      buttons: [{
-        text: 'Done',
-        type: 'button-success',
-      }, {
-        text: 'Delete',
-        type: 'button-danger',
-      }]
-    });
-  }
 });
