@@ -85,23 +85,3 @@ angular.module('services', [])
     currentUser: currentUser
   };
 });
-// .factory('Request', function Auth($q, $http, param) {
-//   var deferred = $q.defer();
-//
-//   var url = baseUrl + 'login';
-//   var postData = { name: name, password: password };
-//
-//   $http.post(url, postData).success(function(response) {
-//   if(response.success && (response.success === true || response.success == "true")) {
-//     user = { name: response.name, id: response.id };
-//     window.localStorage.setItem('user', JSON.stringify(user));
-//     return deferred.resolve(response);
-//   } else {
-//     return deferred.resolve('No user found');
-//   }
-//   }).error(function(error) {
-//   //Fail our promise.
-//   deferred.reject(error);
-//   });
-//   return "here";
-// });
