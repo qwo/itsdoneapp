@@ -40,12 +40,12 @@ angular.module('starter.controllers', ['services'])
 		$scope.createTask = function(task) {
 			$scope.tasks.push({
 				title: task.title,
-				description: task.descripton,
+				description: task.description,
 				price: task.price
 			});
 			$scope.taskModal.hide();
 			task.title = "";
-			task.descripton = "";
+			task.description = "";
 			task.price = "";
 		};
 
