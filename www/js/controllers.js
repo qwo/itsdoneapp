@@ -23,7 +23,7 @@ angular.module('starter.controllers', ['services'])
 		});
 	};
 })
-.controller('UserCtrl', function($scope, $q, $http, $timeout, $ionicModal, $ionicActionSheet, Request ) {
+.controller('UserCtrl', function($scope, $state, $q, $http, $timeout, $ionicModal, $ionicActionSheet, Request, Auth ) {
 		var deferred = $q.defer();
 		// No need for testing data anymore
 		$scope.tasks = [];
@@ -72,6 +72,15 @@ angular.module('starter.controllers', ['services'])
 		$scope.closeNewTask = function() {
 			$scope.taskModal.hide();
 		};
+
+		$scope.logout = function logout() {
+			user = null;
+			Auth.logout();
+			window.localStorage.removeItem('user');
+			$state.go('login');
+			return;
+		};
+
 })
 .controller('HomeCtrl', function($q, $scope, $timeout, $ionicModal, $ionicActionSheet, $http) {
 	$scope.items = [];

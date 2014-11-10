@@ -127,13 +127,10 @@ socket.on('channels', function channels(channels){
     $scope.draft.message = '';
   };
 
-  $scope.logout = function logout() {
-    user = null;
-    Auth.logout();
-    window.localStorage.removeItem('user');
-    $state.go('login');
-    return;
-  };
+	$scope.logout = function logout() {
+		Auth.logout();
+		$state.go('login');
+	};
 
   //Data about the service
   $http.get(baseUrl+'api/products/'+ room ).success(function(response) {

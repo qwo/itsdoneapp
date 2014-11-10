@@ -9,9 +9,6 @@
 
         <ion-header-bar class="bar-positive">
           <h1 class="title">Services</h1>
-          <div class="buttons">
-           <button class="button button-icon icon ion-log-out" ng-click="logout()"></button>
-         </div>
         </ion-header-bar>
         <ion-content has-tabs="true" on-refresh="onRefresh()">
 
@@ -58,9 +55,12 @@
           <br>
           <br>
           <br>
-                <button class="button button-icon" ng-click="newTask()">What can you do?
-        <i class="icon ion-compose"></i>
-      </button>
+          <div class="buttons">
+            <button class="button button-icon" ng-click="newTask()">What can you do?
+    <i class="icon ion-compose"></i>
+  </button>
+           <button class="button button-icon icon ion-log-out" ng-click="logout()">Log Out </button>
+         </div>
         </ion-content>
       </ion-tab>
 

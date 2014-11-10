@@ -76,7 +76,6 @@ angular.module('services', [])
   var logout = function logout() {
     user = null;
     window.localStorage.removeItem('user');
-    $state.go('login');
   };
 
   return {
