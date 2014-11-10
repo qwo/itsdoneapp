@@ -23,7 +23,7 @@ angular.module('starter.controllers', ['services'])
 		});
 	};
 })
-.controller('UserCtrl', function($scope, $q, $http, $timeout, $ionicModal, $ionicActionSheet ) {
+.controller('UserCtrl', function($scope, $q, $http, $timeout, $ionicModal, $ionicActionSheet, Request ) {
 		var deferred = $q.defer();
 		// No need for testing data anymore
 		$scope.tasks = [];
@@ -38,10 +38,15 @@ angular.module('starter.controllers', ['services'])
 
 		// Called when the form is submitted
 		$scope.createTask = function(task) {
+			Request.post('api/products/', {
+				title: task.title,
+				description: task.description,
+				price: task.price,
+			});
 			$scope.tasks.push({
 				title: task.title,
 				description: task.description,
-				price: task.price
+				price: task.price,
 			});
 			$scope.taskModal.hide();
 			task.title = "";
@@ -63,12 +68,6 @@ angular.module('starter.controllers', ['services'])
 		$scope.closeNewTask = function() {
 			$scope.taskModal.hide();
 		};
-})
-.controller('BuyCtrl', function($scope) {
-	console.log("Buy");
-})
-.controller('SellCtrl', function($scope) {
-	console.log("Sell");
 })
 .controller('HomeCtrl', function($q, $scope, $timeout, $ionicModal, $ionicActionSheet, $http) {
 	$scope.items = [];

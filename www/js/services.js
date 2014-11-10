@@ -84,4 +84,41 @@ angular.module('services', [])
     logout: logout,
     currentUser: currentUser
   };
+})
+.factory('Request', function Auth($q, $http, $location) {
+
+
+  var post = function post(route, obj) {
+    var deferred = $q.defer();
+    console.log(obj);
+
+    $http({
+       withCredentials: false,
+       method: 'post',
+       url: baseUrl+route,
+       data: obj,
+    }).
+    success(function(response) {
+        return deferred.resolve(response);
+    })
+    .error(function(error) {
+      //Fail our promise.
+      deferred.reject(error);
+    });
+
+
+    // $http.post(baseUrl+route, obj).success(function(response) {
+    //
+    //     return deferred.resolve(response);
+    // }).error(function(error) {
+    //   //Fail our promise.
+    //   deferred.reject(error);
+    // });
+
+    return deferred.promise;
+  };
+
+  return {
+    post: post
+  };
 });
