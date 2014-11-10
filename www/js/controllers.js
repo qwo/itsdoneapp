@@ -55,7 +55,7 @@ angular.module('starter.controllers', ['services'])
 			// Create the items
 			for(var i = 0; i < response.length; i++) {
 				$scope.items.push({
-					id: response[i].id,
+					id: response[i]._id,
 					title: response[i].title,
 					description: response[i].description,
 					price: response[i].price,
