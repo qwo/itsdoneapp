@@ -38,15 +38,19 @@ angular.module('starter.controllers', ['services'])
 
 		// Called when the form is submitted
 		$scope.createTask = function(task) {
+			//post the data
 			Request.post('api/products/', {
 				title: task.title,
 				description: task.description,
 				price: task.price,
+				provider: JSON.parse(window.localStorage.getItem('user'))
 			});
+
 			$scope.tasks.push({
 				title: task.title,
 				description: task.description,
 				price: task.price,
+				provider: JSON.parse(window.localStorage.getItem('user'))
 			});
 			$scope.taskModal.hide();
 			task.title = "";
