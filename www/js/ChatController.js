@@ -1,3 +1,9 @@
+//DEPLOYED
+var baseUrl = 'http://104.236.42.109:8080/';
+
+//DEVELOPMENT
+var baseUrl = 'http://localhost:8080/';
+
 angular.module('chat.controllers', ['services'])
 
 .controller('ChatCtrl', function($scope, $stateParams, Auth) {
@@ -11,7 +17,8 @@ angular.module('chat.controllers', ['services'])
     console.log("hello!");
   };
 })
-.controller('AppCtrl', function($scope, $state, $filter, $stateParams, socket, Auth) {
+.controller('AppCtrl', function($scope, $state, $filter, $stateParams, $q, $http, socket, Auth) {
+  var deferred = $q.defer();
   var room = $stateParams.id;
   //Ensure they are authed first.
   if(Auth.currentUser() === null) {
@@ -127,6 +134,20 @@ socket.on('channels', function channels(channels){
     $state.go('login');
     return;
   };
+
+  //Data about the service
+  $http.get(baseUrl+'api/products/'+ room ).success(function(response) {
+    if(response) {
+      $scope.item = response;
+      console.log(response);
+      return deferred.resolve(response);
+    } else {
+      return deferred.resolve('No user found');
+    }
+    }).error(function(error) {
+    //Fail our promise.
+    deferred.reject(error);
+  });
 
   //Auto join the lobby
   $scope.joinChannel(room);
