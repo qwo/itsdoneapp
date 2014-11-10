@@ -49,27 +49,51 @@
         </ion-content>
       </ion-tab>
 
-      <ion-tab title="Profile" icon-on="icon ion-ios7-person" icon-off="ion-ios7-person-outline">
+      <ion-tab title="Profile" icon-on="icon ion-ios7-person" icon-off="ion-ios7-person-outline" ng-controller="UserCtrl">
         <header class="bar bar-header bar-positive">
-          <h1 class="title">Settings</h1>
+          <h1 class="title">User Profile</h1>
         </header>
         <ion-content has-header="true" >
           <h1>User Profile</h1>
+          <br>
+          <br>
+          <br>
+                <button class="button button-icon" ng-click="newTask()">What can you do?
+        <i class="icon ion-compose"></i>
+      </button>
         </ion-content>
       </ion-tab>
 
     </ion-tabs>
 
-    <script id="newTask.html" type="text/ng-template">
-      <div id="task-view" class="modal slide-in-up" ng-controller="TaskCtrl">
-        <header class="bar bar-header bar-secondary">
-          <h1 class="title">New Task</h1>
-          <button class="button button-clear button-primary" ng-click="close()">Done</button>
-        </header>
-        <ion-content class="padding has-header">
-          <input type="text" placeholder="I need to do this...">
-        </ion-content>
-      </div>
-    </script>
+<script id="new-task.html" type="text/ng-template">
+
+  <div class="modal">
+
+    <!-- Modal header bar -->
+    <ion-header-bar class="bar-secondary">
+      <h1 class="title">New Task</h1>
+      <button class="button button-clear button-positive" ng-click="closeNewTask()">Cancel</button>
+    </ion-header-bar>
+
+    <!-- Modal content area -->
+    <ion-content>
+
+      <form ng-submit="createTask(task)">
+        <div class="list">
+          <label class="item item-input">
+            <input type="text" placeholder="What can you do?" ng-model="task.title">
+          </label>
+        </div>
+        <div class="padding">
+          <button type="submit" class="button button-block button-positive">Create Task</button>
+        </div>
+      </form>
+
+    </ion-content>
+
+  </div>
+
+</script>
 
   </body>

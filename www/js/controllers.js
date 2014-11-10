@@ -23,10 +23,42 @@ angular.module('starter.controllers', ['services'])
 		});
 	};
 })
-.controller('TaskCtrl', function($scope) {
-	$scope.close = function() {
-		$scope.modal.hide();
-	};
+.controller('UserCtrl', function($scope, $q, $http, $timeout, $ionicModal, $ionicActionSheet ) {
+		var deferred = $q.defer();
+		// No need for testing data anymore
+		$scope.tasks = [];
+
+		// Create and load the Modal
+		$ionicModal.fromTemplateUrl('new-task.html', function(modal) {
+			$scope.taskModal = modal;
+		}, {
+			scope: $scope,
+			animation: 'slide-in-up'
+		});
+
+		// Called when the form is submitted
+		$scope.createTask = function(task) {
+			$scope.tasks.push({
+				title: task.title
+			});
+			$scope.taskModal.hide();
+			task.title = "";
+		};
+
+		// Open our new task modal
+		$scope.newTask = function() {
+			$scope.taskModal.show();
+		};
+
+		// Close the new task modal
+		$scope.closeNewTask = function() {
+			$scope.taskModal.hide();
+		};
+
+			// Close the new task modal
+		$scope.closeNewTask = function() {
+			$scope.taskModal.hide();
+		};
 })
 .controller('BuyCtrl', function($scope) {
 	console.log("Buy");
@@ -37,10 +69,6 @@ angular.module('starter.controllers', ['services'])
 .controller('HomeCtrl', function($q, $scope, $timeout, $ionicModal, $ionicActionSheet, $http) {
 	$scope.items = [];
 	var deferred = $q.defer();
-
-	$ionicModal.fromTemplateUrl('newTask.html', function(modal) {
-		$scope.settingsModal = modal;
-	});
 
 	$scope.onRefresh = function() {
 		console.log('Refreshing');
