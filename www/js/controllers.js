@@ -85,40 +85,37 @@ angular.module('starter.controllers', ['services'])
 .controller('HomeCtrl', function($q, $scope, $timeout, $ionicModal, $ionicActionSheet, $http) {
 	$scope.items = [];
 	var deferred = $q.defer();
+	getListings();
 
-	$scope.onRefresh = function() {
-		console.log('Refreshing');
 
-		$timeout(function() {
-			$scope.$broadcast('scroll.refreshComplete');
-		}, 1000);
-	};
-	$http.get(baseUrl+'api/products').success(function(response) {
-		if(response) {
-			console.log(response);
-			// Create the items
-			for(var i = 0; i < response.length; i++) {
-				$scope.items.push({
-					id: response[i]._id,
-					title: response[i].title,
-					description: response[i].description,
-					price: response[i].price,
-					buttons: [{
-						text: 'Done',
-						type: 'button-success',
-					}, {
-						text: 'Delete',
-						type: 'button-danger',
-					}]
-				});
+
+		function getListings(){$http.get(baseUrl+'api/products').success(function(response) {
+			if(response) {
+				$scope.items = [];
+				console.log(response);
+				// Create the items
+				for(var i = 0; i < response.length; i++) {
+					$scope.items.push({
+						id: response[i]._id,
+						title: response[i].title,
+						description: response[i].description,
+						price: response[i].price,
+						buttons: [{
+							text: 'Done',
+							type: 'button-success',
+						}, {
+							text: 'Delete',
+							type: 'button-danger',
+						}]
+					});
+				}
+				return deferred.resolve(response);
+			} else {
+				return deferred.resolve('No user found');
 			}
-			return deferred.resolve(response);
-		} else {
-			return deferred.resolve('No user found');
-		}
-		}).error(function(error) {
-		//Fail our promise.
-		deferred.reject(error);
-	});
-
+			}).error(function(error) {
+			//Fail our promise.
+			deferred.reject(error);
+		});
+	}
 });
