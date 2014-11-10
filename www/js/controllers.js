@@ -39,10 +39,14 @@ angular.module('starter.controllers', ['services'])
 		// Called when the form is submitted
 		$scope.createTask = function(task) {
 			$scope.tasks.push({
-				title: task.title
+				title: task.title,
+				description: task.descripton,
+				price: task.price
 			});
 			$scope.taskModal.hide();
 			task.title = "";
+			task.descripton = "";
+			task.price = "";
 		};
 
 		// Open our new task modal

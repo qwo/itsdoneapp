@@ -72,7 +72,7 @@
 
     <!-- Modal header bar -->
     <ion-header-bar class="bar-secondary">
-      <h1 class="title">New Task</h1>
+      <h1 class="title">What can you do?</h1>
       <button class="button button-clear button-positive" ng-click="closeNewTask()">Cancel</button>
     </ion-header-bar>
 
@@ -81,15 +81,23 @@
 
       <form ng-submit="createTask(task)">
         <div class="list">
-          <label class="item item-input">
-            <input type="text" placeholder="What can you do?" ng-model="task.title">
-          </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Title</span>
+          <input type="text" placeholder="Title of what you can do" ng-model="task.title">
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Description</span>
+          <input type="text" placeholder="Some details" ng-model="task.description">
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Price</span>
+          <input type="text" placeholder="Price" ng-model="task.price">
+        </label>
         </div>
         <div class="padding">
-          <button type="submit" class="button button-block button-positive">Create Task</button>
+          <button type="submit" class="button button-block button-positive">Publish</button>
         </div>
       </form>
-
     </ion-content>
 
   </div>
