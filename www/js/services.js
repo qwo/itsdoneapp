@@ -105,15 +105,6 @@ angular.module('services', [])
       deferred.reject(error);
     });
 
-
-    // $http.post(baseUrl+route, obj).success(function(response) {
-    //
-    //     return deferred.resolve(response);
-    // }).error(function(error) {
-    //   //Fail our promise.
-    //   deferred.reject(error);
-    // });
-
     return deferred.promise;
   };
 
