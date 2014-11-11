@@ -52,6 +52,8 @@ angular.module('starter.controllers', ['services'])
 			task.price = "";
 		};
 
+
+
 		// Open our new task modal
 		$scope.newTask = function() {
 			$scope.taskModal.show();
@@ -74,6 +76,42 @@ angular.module('starter.controllers', ['services'])
 			$state.go('login');
 			return;
 		};
+
+		$scope.items = [];
+		var deferred = $q.defer();
+		getListings();
+
+
+
+			function getListings(){$http.get(baseUrl+'api/products').success(function(response) {
+				if(response) {
+					$scope.items = [];
+					console.log(response);
+					// Create the items
+					for(var i = 0; i < response.length; i++) {
+						$scope.items.push({
+							id: response[i]._id,
+							title: response[i].title,
+							description: response[i].description,
+							price: response[i].price,
+							buttons: [{
+								text: 'Done',
+								type: 'button-success',
+							}, {
+								text: 'Delete',
+								type: 'button-danger',
+							}]
+						});
+					}
+					return deferred.resolve(response);
+				} else {
+					return deferred.resolve('No user found');
+				}
+				}).error(function(error) {
+				//Fail our promise.
+				deferred.reject(error);
+			});
+		}
 
 })
 .controller('HomeCtrl', function($q, $scope, $timeout, $ionicModal, $ionicActionSheet, $http) {

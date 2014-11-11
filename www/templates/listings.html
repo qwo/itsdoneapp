@@ -23,12 +23,11 @@
                       can-delete="true"
                       can-swipe="true"
                       on-delete="deleteItem(item)"
-                      class="item" href="#/service/{{item.id}}" >
-<!--               <img src="../img/venkman.jpg"></img> -->
-              {{item.title}}
+                      class="item item-thumbnail-left" href="#/service/{{item.id}}" >
+            <img ng-src="http://placehold.it/100x100"></img>
+              <h2>{{item.title}}</h2>
               <i class="{{item.icon}}"></i>
-              {{item.description}}
-              <button class="button button-positive">
+              <button class="button">
                 Connect ${{item.price}}
               </button>
             </a>
@@ -50,14 +49,29 @@
         <header class="bar bar-header bar-positive">
           <h1 class="title">User Profile</h1>
         </header>
-        <ion-content has-header="true" class="center">
-          <img src="http://placehold.it/200x200">
-          <div class="buttons">
-            <button class="button button-icon" ng-click="newTask()">What can you do?
-    <i class="icon ion-compose"></i>
-  </button>
-           <button class="button button-icon icon ion-log-out" ng-click="logout()">Log Out </button>
-         </div>
+        <ion-content has-header="true">
+        <div id="profile" class="center">
+            <img src="http://placehold.it/250x250">
+            <div class="buttons">
+              <button class="button button-icon" ng-click="newTask()">What can you do?
+      <i class="icon ion-compose"></i>
+    </button>
+             <button class="button button-icon icon ion-log-out" ng-click="logout()">Log Out </button>
+           </div>
+        </div>
+
+         <ion-list scroll="false" on-refresh="onRefresh()"
+                   s-editing="isEditingItems"
+                   animation="fade-out"
+                   delete-icon="icon ion-minus-circled">
+           <ion-item ng-repeat="item in items"
+                     item="item"
+                     class="item" href="#/service/{{item.id}}" >
+<!--               <img src="../img/venkman.jpg"></img> -->
+             {{item.title}}
+             <i class="{{item.icon}}"></i>
+           </a>
+           </ion-item>
         </ion-content>
       </ion-tab>
 
