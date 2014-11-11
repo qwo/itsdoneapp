@@ -1,9 +1,3 @@
-//DEPLOYED
-var baseUrl = 'http://104.236.42.109:8080/';
-
-//DEVELOPMENT
-var baseUrl = 'http://localhost:8080/';
-
 angular.module('services', [])
 //removed funtion signature
 .factory('socket', function ($rootScope) {
