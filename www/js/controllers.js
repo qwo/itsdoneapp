@@ -126,7 +126,7 @@ angular.module('starter.controllers', ['services'])
 				$scope.items = [];
 				console.log(response);
 				// Create the items
-				for(var i = 0; i < response.length; i++) {
+				for (var i = 0; i < response.length; i++) {
 					$scope.items.push({
 						id: response[i]._id,
 						title: response[i].title,

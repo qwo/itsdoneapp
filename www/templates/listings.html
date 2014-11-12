@@ -16,14 +16,14 @@
           <ion-list scroll="false" on-refresh="onRefresh()"
                     s-editing="isEditingItems"
                     animation="fade-out"
-                    delete-icon="icon ion-minus-circled">
+                    delete-icon="icon ion-minus-circled" >
             <ion-item ng-repeat="item in items"
                       item="item"
                       buttons="item.buttons"
                       can-delete="true"
                       can-swipe="true"
                       on-delete="deleteItem(item)"
-                      class="item item-thumbnail-left" href="#/service/{{item.id}}" >
+                      class="item item-thumbnail-left" href="#/service/{{item.id}}" ng-click="test(item)">
             <img ng-src="http://placehold.it/100x100"></img>
               <h2>{{item.title}}</h2>
               <i class="{{item.icon}}"></i>

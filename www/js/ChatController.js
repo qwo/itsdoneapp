@@ -6,7 +6,7 @@ angular.module('chat.controllers', ['services', 'angularPayments'])
     console.log("hello!");
   };
 })
-.controller('StagingCtrl', function($scope, $stateParams, Auth) {
+.controller('StagingCtrl', function($scope, $stateParams, Auth, Request) {
   $scope.sayHello = function () {
     console.log("hello!");
   };
@@ -16,7 +16,7 @@ angular.module('chat.controllers', ['services', 'angularPayments'])
     console.log(status);
         if(response.error) {
           // there was an error. Fix it.
-
+          Request.post('api/products/subscribe',{"id": "545ff68506e64f0000f943cb", "user": Auth.currentUser()});
         } else {
           // got stripe token, now charge it or smt
           token = response.id;

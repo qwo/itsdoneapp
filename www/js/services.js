@@ -92,6 +92,7 @@ angular.module('services', [])
        data: obj,
     }).
     success(function(response) {
+        console.log(response);
         return deferred.resolve(response);
     })
     .error(function(error) {
@@ -106,6 +107,7 @@ angular.module('services', [])
     post: post
   };
 })
+// nice modal notifications.
 .factory('Prompt', function ($scope, $ionicPopup, $timeout) {
   // body...
   var alert = function () {
