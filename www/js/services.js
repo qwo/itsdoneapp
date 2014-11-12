@@ -78,7 +78,7 @@ angular.module('services', [])
     currentUser: currentUser
   };
 })
-.factory('Request', function Auth($q, $http, $location) {
+.factory('Request', function Request($q, $http, $location) {
 
 
   var post = function post(route, obj) {
@@ -116,4 +116,7 @@ angular.module('services', [])
   return {
     alert:alert
   };
+})
+.factory('Listings', function Listings($q, $http, $location) {
+
 });
