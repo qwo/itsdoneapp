@@ -6,7 +6,7 @@ angular.module('starter.controllers', ['services'])
 	$scope.user = {password: '', email: '' };
 
 	$scope.login = function login(user) {
-		Auth.login(user.email, user.password ).then(function(data) {
+		Auth.login(user.email, user.password, user.name, user. bio).then(function(data) {
 			if(data.local) {
 				console.log('auth was successful.');
 
@@ -52,6 +52,8 @@ angular.module('starter.controllers', ['services'])
 			task.price = "";
 		};
 
+
+
 		// Open our new task modal
 		$scope.newTask = function() {
 			$scope.taskModal.show();
@@ -75,6 +77,42 @@ angular.module('starter.controllers', ['services'])
 			return;
 		};
 
+		$scope.items = [];
+		getListings();
+
+
+
+			function getListings(){
+				$http.get(baseUrl+'api/products').success(function(response) {
+				if(response) {
+					$scope.items = [];
+					console.log(response);
+					// Create the items
+					for(var i = 0; i < response.length; i++) {
+						$scope.items.push({
+							id: response[i]._id,
+							title: response[i].title,
+							description: response[i].description,
+							price: response[i].price,
+							buttons: [{
+								text: 'Done',
+								type: 'button-success',
+							}, {
+								text: 'Delete',
+								type: 'button-danger',
+							}]
+						});
+					}
+					return deferred.resolve(response);
+				} else {
+					return deferred.resolve('No user found');
+				}
+				}).error(function(error) {
+				//Fail our promise.
+				deferred.reject(error);
+			});
+		}
+
 })
 .controller('HomeCtrl', function($q, $scope, $timeout, $ionicModal, $ionicActionSheet, $http) {
 	$scope.items = [];
@@ -88,7 +126,7 @@ angular.module('starter.controllers', ['services'])
 				$scope.items = [];
 				console.log(response);
 				// Create the items
-				for(var i = 0; i < response.length; i++) {
+				for (var i = 0; i < response.length; i++) {
 					$scope.items.push({
 						id: response[i]._id,
 						title: response[i].title,

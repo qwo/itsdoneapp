@@ -1,4 +1,4 @@
-angular.module('chat.controllers', ['services'])
+angular.module('chat.controllers', ['services', 'angularPayments'])
 
 .controller('ChatCtrl', function($scope, $stateParams, Auth) {
   console.log($stateParams.id);
@@ -6,10 +6,22 @@ angular.module('chat.controllers', ['services'])
     console.log("hello!");
   };
 })
-.controller('StagingCtrl', function($scope, $stateParams, Auth) {
+.controller('StagingCtrl', function($scope, $stateParams, Auth, Request) {
   $scope.sayHello = function () {
     console.log("hello!");
   };
+  $scope.handleStripe = function(status, response){
+    console.log(response);
+    alert('crud!');
+    console.log(status);
+        if(response.error) {
+          // there was an error. Fix it.
+          Request.post('api/products/subscribe',{"id": "545ff68506e64f0000f943cb", "user": Auth.currentUser()});
+        } else {
+          // got stripe token, now charge it or smt
+          token = response.id;
+        }
+      };
 })
 .controller('AppCtrl', function($scope, $state, $filter, $stateParams, $q, $http, socket, Auth) {
   var deferred = $q.defer();

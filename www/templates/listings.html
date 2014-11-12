@@ -16,19 +16,18 @@
           <ion-list scroll="false" on-refresh="onRefresh()"
                     s-editing="isEditingItems"
                     animation="fade-out"
-                    delete-icon="icon ion-minus-circled">
+                    delete-icon="icon ion-minus-circled" >
             <ion-item ng-repeat="item in items"
                       item="item"
                       buttons="item.buttons"
                       can-delete="true"
                       can-swipe="true"
                       on-delete="deleteItem(item)"
-                      class="item" href="#/service/{{item.id}}" >
-<!--               <img src="../img/venkman.jpg"></img> -->
-              {{item.title}}
+                      class="item item-thumbnail-left" href="#/service/{{item.id}}" ng-click="test(item)">
+            <img ng-src="http://placehold.it/100x100"></img>
+              <h2>{{item.title}}</h2>
               <i class="{{item.icon}}"></i>
-              {{item.description}}
-              <button class="button button-positive">
+              <button class="button">
                 Connect ${{item.price}}
               </button>
             </a>
@@ -41,8 +40,26 @@
         <header class="bar bar-header bar-positive">
           <h1 class="title">Interactions</h1>
         </header>
+        <div class="bar bar-subheader">
+          <!--Buy/sell Tags-->
+            <ion-tabs class="tabs-balanced tabs-icon-top">
+              <ion-tab title="Buy" icon-on="ion-ios7-filing" icon-off="ion-ios7-filing-outline">
+                <!-- Tab 1 content -->
+                <ion-content class="center">
+                    <h1>Shows active/past services you bought</h1>
+                <ion-content>
+              </ion-tab>
+
+             <ion-tab title="Sell" icon-on="ion-ios7-clock" icon-off="ion-ios7-clock-outline" ng-controller="HomeCtrl">
+                <!-- Tab 2 content -->
+              </ion-tab>
+          </ion-tabs>
+        </div>
         <ion-content has-header="true">
-          <h1>Interactions</h1>
+          <br>
+          <br>
+          <h1>Content Here</h1>
+          <h1>Shows active/past services you bought and other one shows services active sold.</h1>
         </ion-content>
       </ion-tab>
 
@@ -50,17 +67,30 @@
         <header class="bar bar-header bar-positive">
           <h1 class="title">User Profile</h1>
         </header>
-        <ion-content has-header="true" >
-          <h1>User Profile</h1>
-          <br>
-          <br>
-          <br>
-          <div class="buttons">
-            <button class="button button-icon" ng-click="newTask()">What can you do?
-    <i class="icon ion-compose"></i>
-  </button>
-           <button class="button button-icon icon ion-log-out" ng-click="logout()">Log Out </button>
-         </div>
+        <ion-content has-header="true">
+        <div id="profile" class="center">
+            <img src="http://placehold.it/250x200">
+            <div class="buttons">
+            <img src="http://css-stars.com/wp-content/uploads/2013/12/4-stars.jpg" alt="stars" height="25px" width="100px"/>
+              <button class="button button-icon" ng-click="newTask()">What can you do?
+      <i class="icon ion-compose"></i>
+    </button>
+             <button class="button button-icon icon ion-log-out" ng-click="logout()">Log Out </button>
+           </div>
+        </div>
+
+         <ion-list scroll="false" on-refresh="onRefresh()"
+                   s-editing="isEditingItems"
+                   animation="fade-out"
+                   delete-icon="icon ion-minus-circled">
+           <ion-item ng-repeat="item in items"
+                     item="item"
+                     class="item" href="#/service/{{item.id}}" >
+<!--               <img src="../img/venkman.jpg"></img> -->
+             {{item.title}}
+             <i class="{{item.icon}}"></i>
+           </a>
+           </ion-item>
         </ion-content>
       </ion-tab>
 

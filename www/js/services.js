@@ -32,7 +32,7 @@ angular.module('services', [])
     user = JSON.parse(window.localStorage.getItem('user'));
   } catch(ex) { /* Silently fail, no user */ }
 
-  var login = function login(email, password) {
+  var login = function login(email, password, name, bio) {
     var deferred = $q.defer();
     var url;
     // Use same service for URL
@@ -43,7 +43,7 @@ angular.module('services', [])
     else {
        url = baseUrl + 'signup';
     }
-    var postData = { email: email, password: password };
+    var postData = { email: email, password: password, name:name, bio:bio };
 
     $http.post(url, postData).success(function(response) {
       if(response.local !== []) {
@@ -78,7 +78,7 @@ angular.module('services', [])
     currentUser: currentUser
   };
 })
-.factory('Request', function Auth($q, $http, $location) {
+.factory('Request', function Request($q, $http, $location) {
 
 
   var post = function post(route, obj) {
@@ -92,6 +92,7 @@ angular.module('services', [])
        data: obj,
     }).
     success(function(response) {
+        console.log(response);
         return deferred.resolve(response);
     })
     .error(function(error) {
@@ -105,4 +106,17 @@ angular.module('services', [])
   return {
     post: post
   };
+})
+// nice modal notifications.
+.factory('Prompt', function ($scope, $ionicPopup, $timeout) {
+  // body...
+  var alert = function () {
+    console.log("alert");
+  };
+  return {
+    alert:alert
+  };
+})
+.factory('Listings', function Listings($q, $http, $location) {
+
 });
