@@ -6,7 +6,7 @@ angular.module('starter.controllers', ['services'])
 	$scope.user = {password: '', email: '' };
 
 	$scope.login = function login(user) {
-		Auth.login(user.email, user.password ).then(function(data) {
+		Auth.login(user.email, user.password, user.name, user. bio).then(function(data) {
 			if(data.local) {
 				console.log('auth was successful.');
 

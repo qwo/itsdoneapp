@@ -32,7 +32,7 @@ angular.module('services', [])
     user = JSON.parse(window.localStorage.getItem('user'));
   } catch(ex) { /* Silently fail, no user */ }
 
-  var login = function login(email, password) {
+  var login = function login(email, password, name, bio) {
     var deferred = $q.defer();
     var url;
     // Use same service for URL
@@ -43,7 +43,7 @@ angular.module('services', [])
     else {
        url = baseUrl + 'signup';
     }
-    var postData = { email: email, password: password };
+    var postData = { email: email, password: password, name:name, bio:bio };
 
     $http.post(url, postData).success(function(response) {
       if(response.local !== []) {
@@ -104,5 +104,14 @@ angular.module('services', [])
 
   return {
     post: post
+  };
+})
+.factory('Prompt', function ($scope, $ionicPopup, $timeout) {
+  // body...
+  var alert = function () {
+    console.log("alert");
+  };
+  return {
+    alert:alert
   };
 });

@@ -12,6 +12,7 @@ angular.module('chat.controllers', ['services', 'angularPayments'])
   };
   $scope.handleStripe = function(status, response){
     console.log(response);
+    alert('crud!');
     console.log(status);
         if(response.error) {
           // there was an error. Fix it.
