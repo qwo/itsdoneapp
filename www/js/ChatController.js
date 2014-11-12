@@ -1,4 +1,4 @@
-angular.module('chat.controllers', ['services'])
+angular.module('chat.controllers', ['services', 'angularPayments'])
 
 .controller('ChatCtrl', function($scope, $stateParams, Auth) {
   console.log($stateParams.id);
@@ -10,6 +10,17 @@ angular.module('chat.controllers', ['services'])
   $scope.sayHello = function () {
     console.log("hello!");
   };
+  $scope.handleStripe = function(status, response){
+    console.log(response);
+    console.log(status);
+        if(response.error) {
+          // there was an error. Fix it.
+
+        } else {
+          // got stripe token, now charge it or smt
+          token = response.id;
+        }
+      };
 })
 .controller('AppCtrl', function($scope, $state, $filter, $stateParams, $q, $http, socket, Auth) {
   var deferred = $q.defer();

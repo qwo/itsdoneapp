@@ -8,8 +8,8 @@
 
      <ion-view title="Payment">
        <ion-content>
-  <form stripe-form="handleStripe" name="myForm" class="list">
-
+  <form stripe-form="handleStripe" name="myForm" class="list" ng-controller="StagingCtrl">
+              <h1> $5.00 </h1>
               <div class="item item-input item-stacked-label">
                 <label for="">Card number</label>
                 <input type="text" class="input-block-level" ng-model="number" payments-validate="card" payments-format="card" payments-type-model="type" ng-class="myForm.number.$card.type"/>
@@ -34,9 +34,5 @@
                 <button class="button button-block button-positive activated">Submit</button>
               </div>
             </form>
-
-
-
-
        </ion-content>
      </ion-view>

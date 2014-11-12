@@ -9,12 +9,24 @@
        <ion-content>
          <div class="list">
            <label class="item item-input">
-             <span class="input-label">Username</span>
+             <span class="input-label">Full Name</span>
+             <input type="text" ng-model="user.name">
+           </label>
+           <label class="item item-input">
+             <span class="input-label">Email</span>
              <input type="text" ng-model="user.email">
+           </label>
+           <label class="item item-input">
+             <span class="input-label">Bio</span>
+             <input type="text" ng-model="user.bio">
            </label>
            <label class="item item-input">
              <span class="input-label">Password</span>
              <input type="password" ng-model="user.password">
+           </label>
+           <label class="item item-input">
+             <span class="input-label">Confirm Password</span>
+             <input type="password" ng-model="user.confirm">
            </label>
          </div>
          <div class="padding">
