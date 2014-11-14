@@ -159,7 +159,7 @@ body, html, .contents{
 	background-color: #fff;
 }
 
-.tabs .col-xs-6{
+.tabular .col-xs-6{
 	transition: color 0.3s ease-out;
 	transition: background-color 0.3s ease-out;
 	height:100%;
@@ -170,16 +170,16 @@ body, html, .contents{
 	text-align: center;
 }
 
-.tabs .col-xs-6:hover{
+.tabular .col-xs-6:hover{
 	cursor:pointer;
 	background-color:#E9E8E4;
 }
 
-.tabs .col-xs-6.active{
+.tabular .col-xs-6.active{
 	background-color:#efefef;
 }
 
-.tabs .col-xs-6.active:hover{
+.tabular .col-xs-6.active:hover{
 	background-color:#E9E8E4;
 }
 
