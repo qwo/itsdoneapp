@@ -51,6 +51,10 @@ angular.module('chat.controllers', ['services', 'angularPayments'])
     $state.go('login');
     return;
   }
+
+  $scope.itsdone = function itsdone() {
+    $state.go('payment');
+  };
   $scope.Back = function () {
     $state.go('listings');
   };

@@ -1,5 +1,5 @@
 
-    <ion-nav-bar class="bar-positive nav-title-slide-ios7">
+    <ion-nav-bar class="bar-positive nav-title-slide-ios7" style="background-color:#48C37D">
      <ion-nav-back-button class="button-icon ion-arrow-left-c">
      </ion-nav-back-button>
    </ion-nav-bar>
@@ -9,7 +9,7 @@
      <ion-view title="Payment">
        <ion-content>
   <form stripe-form="handleStripe" name="myForm" class="list" ng-controller="StagingCtrl">
-              <h1> $5.00 </h1>
+              <h1> $11.00 </h1>
               <div class="item item-input item-stacked-label">
                 <label for="">Card number</label>
                 <input type="text" class="input-block-level" ng-model="number" payments-validate="card" payments-format="card" payments-type-model="type" ng-class="myForm.number.$card.type"/>
@@ -31,7 +31,7 @@
               </div>
 
               <div class="item item-input item-stacked-label">
-                <button class="button button-block button-positive activated">Submit</button>
+                <button class="button button-block activated" style="background-color:#48C37D; color: white;">Submit</button>
               </div>
             </form>
        </ion-content>
