@@ -103,8 +103,29 @@ angular.module('services', [])
     return deferred.promise;
   };
 
+  var get = function get(route,param) {
+    var deferred = $q.defer();
+
+    $http({
+       withCredentials: false,
+       method: 'get',
+       url: baseUrl+route+param,
+    }).
+    success(function(response) {
+        console.log(response);
+        return deferred.resolve(response);
+    })
+    .error(function(error) {
+      //Fail our promise.
+      deferred.reject(error);
+    });
+
+    return deferred.promise;
+  };
+
   return {
-    post: post
+    post: post,
+    get: get
   };
 })
 // nice modal notifications.

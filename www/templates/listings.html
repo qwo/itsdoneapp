@@ -1,73 +1,61 @@
   <body ng-controller="RootCtrl">
 
-    <ion-tabs class="tabs-icon-only tabs-positive">
+    <ion-tabs class="tabs-icon-only">
 
       <ion-tab title="Home"
                icon-on="ion-ios7-filing"
                icon-off="ion-ios7-filing-outline"
                ng-controller="HomeCtrl">
 
-        <ion-header-bar class="bar-positive">
+        <ion-header-bar class="bar-positive header" style="background-color:#48C37D">
           <h1 class="title">Services</h1>
+          <ion-nav-back-button class="button-icon ion-arrow-left-c">
+          </ion-nav-back-button>
         </ion-header-bar>
         <ion-content has-tabs="true" on-refresh="onRefresh()">
 
           <ion-refresher></ion-refresher>
-          <ion-list scroll="false" on-refresh="onRefresh()"
-                    s-editing="isEditingItems"
-                    animation="fade-out"
-                    delete-icon="icon ion-minus-circled" >
-            <ion-item ng-repeat="item in items"
-                      item="item"
-                      buttons="item.buttons"
-                      can-delete="true"
-                      can-swipe="true"
-                      on-delete="deleteItem(item)"
-                      class="item item-thumbnail-left" href="#/service/{{item.id}}" ng-click="test(item)">
-            <img ng-src="http://placehold.it/100x100"></img>
-              <h2>{{item.title}}</h2>
-              <i class="{{item.icon}}"></i>
-              <button class="button">
-                Connect ${{item.price}}
-              </button>
-            </a>
-            </ion-item>
-          </ion-list>
+  <div class="contents feed"   ng-repeat="item in items"   item="item">
+  <a href="/#/details/{{item.id}}">
+		<div class="row container" ng-model="item">
+			<div class="row-content">
+				<div class="image"><img src="img/kyle.png"><div class="circle">3</div></div>
+				<div class="price pull-right">${{item.price}}</div>
+				<div class="info">
+					<div class="name">{{item.title}}</div>
+					<div class="service">{{item.provider}}</div>
+				</div>
+			</div>
+		</div>
+  </a>
+  </div>
         </ion-content>
       </ion-tab>
 
-      <ion-tab title="About" icon-on="icon ion-ios7-clock" icon-off="icon ion-ios7-clock-outline">
-        <header class="bar bar-header bar-positive">
+      <ion-tab title="About" icon-on="icon ion-ios7-clock" icon-off="icon ion-ios7-clock-outline" style="background-color:#48C37D">
+        <header class="bar bar-header bar-positive" style="background-color:#48C37D">
           <h1 class="title">Interactions</h1>
         </header>
-        <div class="bar bar-subheader">
-          <!--Buy/sell Tags-->
-            <ion-tabs class="tabs-balanced tabs-icon-top">
-              <ion-tab title="Buy" icon-on="ion-ios7-filing" icon-off="ion-ios7-filing-outline">
-                <!-- Tab 1 content -->
-                <ion-content class="center">
-                    <h1>Shows active/past services you bought</h1>
-                <ion-content>
-              </ion-tab>
 
-             <ion-tab title="Sell" icon-on="ion-ios7-clock" icon-off="ion-ios7-clock-outline" ng-controller="HomeCtrl">
-                <!-- Tab 2 content -->
-              </ion-tab>
-          </ion-tabs>
-        </div>
         <ion-content has-header="true">
-          <br>
-          <br>
-          <h1>Content Here</h1>
-          <h1>Shows active/past services you bought and other one shows services active sold.</h1>
+
         </ion-content>
       </ion-tab>
 
-      <ion-tab title="Profile" icon-on="icon ion-ios7-person" icon-off="ion-ios7-person-outline" ng-controller="UserCtrl">
-        <header class="bar bar-header bar-positive">
-          <h1 class="title">User Profile</h1>
-        </header>
-        <ion-content has-header="true">
+      <ion-tab title="Profile" icon-on="icon ion-ios7-person" icon-off="ion-ios7-person-outline" ng-controller="UserCtrl" >
+      <ion-header-bar class="bar-positive header" style="background-color:#48C37D">
+        <h1 class="title">Services</h1>
+        <ion-nav-back-button class="button-icon ion-arrow-left-c">
+        </ion-nav-back-button>
+      </ion-header-bar>
+      <ion-content has-tabs="true" on-refresh="onRefresh()">
+      <div class="bio">
+        <div class="image"><img src="images/kenny.png"></div>
+        <div class="summary">Kenny is a third- then fourth-grade student who commonly has extraordinary experiences not typical of conventional small-town life.</div>
+      </div>
+      <div class="tabs">
+        <div class="col-xs-6 active">I offer</div><div class="col-xs-6">I Need</div>
+      </div>
         <div id="profile" class="center">
             <img src="http://placehold.it/250x200">
             <div class="buttons">
@@ -123,6 +111,10 @@
           <span class="input-label">Price</span>
           <input type="text" placeholder="Price" ng-model="task.price">
         </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Tags</span>
+          <input type="text" placeholder="Laundry home care" ng-model="task.tags">
+        </label>
         </div>
         <div class="padding">
           <button type="submit" class="button button-block button-positive">Publish</button>
@@ -134,4 +126,41 @@
 
 </script>
 
-  </body>
+
+<!--Add binding and place this inside the midddle view.-->
+<script id="review.html" type="text/ng-template">
+
+  <div class="modal">
+
+    <!-- Modal header bar -->
+    <ion-header-bar class="bar-secondary">
+      <h1 class="title">What did you think do?</h1>
+      <button class="button button-clear button-positive" ng-click="closeNewTask()">Cancel</button>
+    </ion-header-bar>
+
+    <!-- Modal content area -->
+    <ion-content>
+
+      <form ng-submit="createTask(task)">
+        <div class="list">
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Title</span>
+          <input type="text" placeholder="Title" ng-model="review.title">
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Description</span>
+          <input type="text" placeholder="Description" ng-model="review.description">
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Rating</span>
+          <input type="text" placeholder="Price" ng-model="review.stars">
+        </label>
+        <div class="padding">
+          <button class="button button-block button-positive" ng-click="addReview()">
+            Add Review
+          </button>
+      </form>
+    </ion-content>
+  </div>
+
+</script>

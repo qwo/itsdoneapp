@@ -6,10 +6,28 @@ angular.module('chat.controllers', ['services', 'angularPayments'])
     console.log("hello!");
   };
 })
-.controller('StagingCtrl', function($scope, $stateParams, Auth, Request) {
+.controller('StagingCtrl', function($q, $scope, $stateParams, Request, $http) {
+  var deferred = $q.defer();
   $scope.sayHello = function () {
     console.log("hello!");
   };
+  $scope.details = '';
+  getDetails();
+  function getDetails(){$http.get(baseUrl+'api/products/'+$stateParams.id).success(function(response) {
+    if(response) {
+      $scope.details = response;
+      console.log(response);
+      // Create the items
+      return deferred.resolve(response);
+    } else {
+      return deferred.resolve('No user found');
+    }
+    }).error(function(error) {
+    //Fail our promise.
+    deferred.reject(error);
+  });
+}
+
   $scope.handleStripe = function(status, response){
     console.log(response);
     alert('crud!');

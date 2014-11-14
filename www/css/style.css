@@ -2,6 +2,19 @@
 ion-nav-view {
   background-color: white;
 }
+/** custom styles **/
+
+bar-positive {
+  background-color:#48C37D;
+}
+
+.tabs {
+  background-color:#48C37D;
+  border-color:#48C37D;
+  background-image: linear-gradient(0deg, #48C37D, #48C37D 50%, transparent 50%);
+  color: #fff;
+}
+
 
 .center{
   display: -webkit-box;

@@ -1,0 +1,31 @@
+<ion-nav-bar class="bar-positive nav-title-slide-ios7">
+  <div class="buttons">
+    <button class="button" ng-click="Back()">Back</button>
+  </div>
+</ion-nav-bar>
+
+   <ion-nav-view animation="slide-left-right"></ion-nav-view>
+
+ <ion-view title="Add a Zap">
+   <ion-content>
+    <div class="list">
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Title</span>
+        <input type="text" placeholder="Title" ng-model="review.title">
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Description</span>
+        <input type="text" placeholder="Description" ng-model="review.description">
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Rating</span>
+        <input type="text" placeholder="Price" ng-model="review.stars">
+      </label>
+      <div class="padding">
+        <button class="button button-block button-positive" ng-click="addReview()">
+          Add Review
+        </button>
+      </div>
+    </div>
+   </ion-content>
+ </ion-view>
