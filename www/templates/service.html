@@ -28,6 +28,15 @@
     </div>
     <div class="item_description container">
     {{details.description}}</div>
+    <div class ="container">
+      <h1>When do you need itdone?</h1>
+       <select class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+        <option value="now">Now</option>
+        <option value="today">Sometime Today</option>
+        <option value="week">Sometime This Week</option>
+        <option value="whenever">Whenever</option>
+      </select>
+    </div>
     <div class="item_buy container">
       <a href="/#/payment/{{details._id}}?query=price"><div class="btn">Buy ($20)</div></a>
       </div>
