@@ -9,6 +9,8 @@
 
         <ion-header-bar class="bar-positive header" style="background-color:#48C37D">
           <h1 class="title">Services</h1>
+          <ion-nav-back-button class="button-icon ion-arrow-left-c">
+          </ion-nav-back-button>
         </ion-header-bar>
         <ion-content has-tabs="true" on-refresh="onRefresh()">
 
@@ -17,11 +19,11 @@
 
 		<div class="row container">
 			<div class="row-content">
-				<div class="image"><img src="img/kyle.png"></div>
-				<div class="price">$15</div>
+				<div class="image"><img src="img/kyle.png"><div class="circle">3</div></div>
+				<div class="price">${{item.price}}</div>
 				<div class="info">
 					<div class="name">{{item.title}}</div>
-					<div class="service">Elf King------------------</div>
+					<div class="service">{{item.provider}}</div>
 				</div>
 			</div>
 		</div>
@@ -30,25 +32,11 @@
         </ion-content>
       </ion-tab>
 
-      <ion-tab title="About" icon-on="icon ion-ios7-clock" icon-off="icon ion-ios7-clock-outline">
-        <header class="bar bar-header bar-positive">
+      <ion-tab title="About" icon-on="icon ion-ios7-clock" icon-off="icon ion-ios7-clock-outline" style="background-color:#48C37D">
+        <header class="bar bar-header bar-positive" style="background-color:#48C37D">
           <h1 class="title">Interactions</h1>
         </header>
-        <div class="bar bar-subheader">
-          <!--Buy/sell Tags-->
-            <ion-tabs class="tabs-balanced tabs-icon-top">
-              <ion-tab title="Buy" icon-on="ion-ios7-filing" icon-off="ion-ios7-filing-outline">
-                <!-- Tab 1 content -->
-                <ion-content class="center">
-                    <h1>Shows active/past services you bought</h1>
-                <ion-content>
-              </ion-tab>
 
-             <ion-tab title="Sell" icon-on="ion-ios7-clock" icon-off="ion-ios7-clock-outline" ng-controller="HomeCtrl">
-                <!-- Tab 2 content -->
-              </ion-tab>
-          </ion-tabs>
-        </div>
         <ion-content has-header="true">
           <br>
           <br>
