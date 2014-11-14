@@ -22,9 +22,7 @@
       <div class="price">${{details.price}}</div>
     </div>
     <div class="item_images">
-      <div class="item_image"><img src="images/kyle.png"></div>
-      <div class="item_image"><img src="images/eric.png"></div>
-      <div class="item_image"><img src="images/stan.png"></div>
+      <div class="item_image"><img ng-repeat="pic in details.images " ng-src="img/attachments/{{pic}}"></div>
     </div>
     <div class="item_description container">
     {{details.description}}</div>
