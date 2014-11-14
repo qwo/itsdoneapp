@@ -1,0 +1,295 @@
+body, html, .contents{
+	width:100%;
+	height:100%;
+	box-sizing:border-box;
+}
+
+.header, .footer {
+	height:50px;
+	width:100%;
+	position:absolute;
+	left:0;
+	text-align:center;
+	margin:auto;
+	background-color:#48C37D;
+	color:#fff;
+}
+
+.header{
+	top:0;
+	z-index:99;
+}
+
+.header span{
+	float:left;
+	font-size:26px;
+	padding:10px 10px 0 10px;
+	color: rgb(44, 147, 219);
+	cursor:pointer;
+}
+
+.header h1{
+	font-size:26px;
+	margin-top:10px;
+}
+
+.contents{
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+.contents.feed{
+	overflow:scroll;
+}
+
+.contents .row{
+	transition:background-color 0.3s ease-out;
+	height:100px;
+	border-bottom:1px solid #efefef;
+	margin:0;
+	width:100%;
+}
+
+.contents .row:hover{
+	cursor:pointer;
+	background-color: #E9E8E4;
+}
+
+.contents .row > .row-content{
+	padding:15px 0;
+	height:100%;
+}
+
+.contents .image{
+	float:left;
+	padding:0;
+	position:relative;
+}
+
+.contents .image > img{
+	width:70px;
+	height:70px;
+	border-radius:50%;
+}
+
+.contents .info{
+	padding:0 80px;
+}
+
+.contents .name{
+	font-size: 28px;
+	line-height: 42px;
+}
+
+.contents .service{
+	font-size:16px;
+}
+
+.feed .price{
+	float:right;
+	font-size:40px;
+	padding:0;
+	line-height: 70px;
+}
+
+.circle{
+	display: block;
+	width: 30px;
+	height: 30px;
+	background-color: rgb(70, 164, 231);
+	border-radius: 50%;
+	position: absolute;
+	top: 0;
+	right: 0;
+	color:#fff;
+	text-align: center;
+	padding-top:5px;
+}
+
+.contents .services{
+	overflow: scroll;
+	height: calc(100% - 200px);
+}
+
+.contents .services > .row{
+	transition:background-color 0.3s ease-out;
+	height:50px;
+	border-bottom:1px solid #efefef;
+	margin:0;
+	width:100%;
+	padding: 15px;
+}
+
+.contents .services > .row:hover{
+	cursor:pointer;
+	background-color: #E9E8E4;
+}
+
+.contents .services > .row > .row-content{
+	padding:15px 0;
+	height:100%;
+}
+
+.user_detail .image{
+	height:100%;
+	padding-right:10px;
+}
+
+.user_detail .image > img{
+	width:100px;
+	height:100px;
+	border-radius:50%;
+}
+
+.user_detail .summary{
+	font-size:14px;
+}
+
+
+.bio{
+	height: 150px;
+	width: 100%;
+	background-color: #efefef;
+	padding:15px;
+}
+
+.tabs{
+	height:50px;
+	width: 100%;
+	background-color: #fff;
+}
+
+.tabs .col-xs-6{
+	transition: color 0.3s ease-out;
+	transition: background-color 0.3s ease-out;
+	height:100%;
+	background-color:#fff;
+	color: rgb(70, 164, 231);
+	font-size:20px;
+	line-height: 50px;
+	text-align: center;
+}
+
+.tabs .col-xs-6:hover{
+	cursor:pointer;
+	background-color:#E9E8E4;
+}
+
+.tabs .col-xs-6.active{
+	background-color:#efefef;
+}
+
+.tabs .col-xs-6.active:hover{
+	background-color:#E9E8E4;
+}
+
+
+.contents.item_detail{
+	overflow:scroll;
+	height: 100%;
+	padding-top:0;
+}
+
+.item_detail h2{
+	font-size:24px;
+	margin:0;
+}
+
+.item_detail h3{
+	font-size:18px;
+	margin:0;
+	font-weight: normal;
+}
+
+.item_detail .price{
+	position:absolute;
+	bottom:15px;
+	right:15px;
+	background-color:#4CD964;
+	color:#fff;
+	width:70px;
+	height:70px;
+	border-radius: 50%;
+	font-size: 30px;
+	padding:0;
+	line-height: 70px;
+	text-align: center;
+}
+
+.item_detail .rate{
+	position:absolute;
+	bottom:15px;
+	left:15px;
+	color:#FCD75B;
+	font-size: 20px;
+}
+
+.item_detail .item_info{
+	background-color:#48C37D;
+	height:150px;
+	color:#fff;
+	padding: 15px;
+	position:relative;
+}
+
+.item_detail .item_images{
+	height: 150px;
+	background-color: #efefef;
+	width: auto;
+
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+
+.item_detail .item_image{
+	width:auto;
+	display:inline-block;
+}
+
+.item_detail img{
+	height: 150px;
+	padding:10px 0 10px 15px;
+}
+
+.item_detail .item_description{
+	padding-top:15px;
+	padding-bottom: 15px;
+}
+
+.item_detail .review{
+	height: 50px;
+	line-height: 50px;
+	border-top: 1px solid #efefef;
+	border-bottom: 1px solid #efefef;
+	font-size: 20px;
+}
+
+.item_detail .btn{
+	width:100%;
+	background-color: rgb(70, 164, 231);
+	color: #fff;
+	height: 50px;
+	margin: 10px 0;
+	font-size: 20px;
+	line-height: 50px;
+	padding: 0;
+}
+
+.footer{
+	bottom:0;
+}
+
+.footer .row{
+	margin-top:12px;
+}
+
+.footer span{
+	transition:color 0.2s ease-out;
+	font-size:24px;
+}
+
+.footer span:hover{
+	cursor:pointer;
+	color:#E9E8E4;
+}
