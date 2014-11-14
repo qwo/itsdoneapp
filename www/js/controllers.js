@@ -60,10 +60,6 @@ angular.module('starter.controllers', ['services'])
 			$scope.taskModal.show();
 		};
 
-		// Close the new task modal
-		$scope.closeNewTask = function() {
-			$scope.taskModal.hide();
-		};
 
 			// Close the new task modal
 		$scope.closeNewTask = function() {
@@ -119,7 +115,6 @@ angular.module('starter.controllers', ['services'])
 	$scope.items = [];
 	var deferred = $q.defer();
 	getListings();
-
 
 
 		function getListings(){$http.get(baseUrl+'api/products').success(function(response) {
