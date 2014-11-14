@@ -37,6 +37,7 @@ angular.module('starter.controllers', ['services'])
 				title: task.title,
 				description: task.description,
 				price: task.price,
+				tags: task.tags,
 				provider: JSON.parse(window.localStorage.getItem('user'))
 			});
 

@@ -25,7 +25,8 @@
                       on-delete="deleteItem(item)"
                       class="item item-thumbnail-left" href="#/service/{{item.id}}" ng-click="test(item)">
             <img ng-src="http://placehold.it/100x100"></img>
-              <h2>{{item.title}}</h2>
+              <h2 class="name">{{item.title}}</h2>
+              <p  class="service">{{item.provider}}</p>
               <i class="{{item.icon}}"></i>
               <button class="button">
                 Connect ${{item.price}}
@@ -122,6 +123,10 @@
         <label class="item item-input item-floating-label">
           <span class="input-label">Price</span>
           <input type="text" placeholder="Price" ng-model="task.price">
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Tags</span>
+          <input type="text" placeholder="Laundry home care" ng-model="task.tags">
         </label>
         </div>
         <div class="padding">
