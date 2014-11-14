@@ -6,7 +6,8 @@ angular.module('chat.controllers', ['services', 'angularPayments'])
     console.log("hello!");
   };
 })
-.controller('StagingCtrl', function($scope, $stateParams, Auth, Request, $http) {
+.controller('StagingCtrl', function($q, $scope, $stateParams, Request, $http) {
+  var deferred = $q.defer();
   $scope.sayHello = function () {
     console.log("hello!");
   };
