@@ -16,8 +16,8 @@
 
           <ion-refresher></ion-refresher>
   <div class="contents feed"   ng-repeat="item in items"   item="item">
-
-		<div class="row container" ng-model="item"  ng-click="viewDetails(item)">
+  <a href="/#/details/{{item.id}}">
+		<div class="row container" ng-model="item">
 			<div class="row-content">
 				<div class="image"><img src="img/kyle.png"><div class="circle">3</div></div>
 				<div class="price pull-right">${{item.price}}</div>
@@ -27,6 +27,7 @@
 				</div>
 			</div>
 		</div>
+  </a>
   </div>
         </ion-content>
       </ion-tab>
