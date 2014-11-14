@@ -17,10 +17,10 @@
           <ion-refresher></ion-refresher>
   <div class="contents feed"   ng-repeat="item in items"   item="item">
 
-		<div class="row container">
+		<div class="row container" ng-model="item">
 			<div class="row-content">
 				<div class="image"><img src="img/kyle.png"><div class="circle">3</div></div>
-				<div class="price">${{item.price}}</div>
+				<div class="price pull-right">${{item.price}}</div>
 				<div class="info">
 					<div class="name">{{item.title}}</div>
 					<div class="service">{{item.provider}}</div>
@@ -28,7 +28,6 @@
 			</div>
 		</div>
   </div>
-          </ion-list>
         </ion-content>
       </ion-tab>
 
@@ -45,8 +44,8 @@
         </ion-content>
       </ion-tab>
 
-      <ion-tab title="Profile" icon-on="icon ion-ios7-person" icon-off="ion-ios7-person-outline" ng-controller="UserCtrl">
-        <header class="bar bar-header bar-positive">
+      <ion-tab title="Profile" icon-on="icon ion-ios7-person" icon-off="ion-ios7-person-outline" ng-controller="UserCtrl" >
+        <header class="bar bar-header bar-positive" style="background-color:#48C37D">
           <h1 class="title">User Profile</h1>
         </header>
         <ion-content has-header="true">
