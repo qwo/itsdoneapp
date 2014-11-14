@@ -125,3 +125,42 @@
   </div>
 
 </script>
+
+
+<!--Add binding and place this inside the midddle view.-->
+<script id="review.html" type="text/ng-template">
+
+  <div class="modal">
+
+    <!-- Modal header bar -->
+    <ion-header-bar class="bar-secondary">
+      <h1 class="title">What did you think do?</h1>
+      <button class="button button-clear button-positive" ng-click="closeNewTask()">Cancel</button>
+    </ion-header-bar>
+
+    <!-- Modal content area -->
+    <ion-content>
+
+      <form ng-submit="createTask(task)">
+        <div class="list">
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Title</span>
+          <input type="text" placeholder="Title" ng-model="review.title">
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Description</span>
+          <input type="text" placeholder="Description" ng-model="review.description">
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Rating</span>
+          <input type="text" placeholder="Price" ng-model="review.stars">
+        </label>
+        <div class="padding">
+          <button class="button button-block button-positive" ng-click="addReview()">
+            Add Review
+          </button>
+      </form>
+    </ion-content>
+  </div>
+
+</script>
