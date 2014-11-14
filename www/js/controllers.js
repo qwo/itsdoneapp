@@ -120,7 +120,10 @@ angular.module('starter.controllers', ['services'])
 	var deferred = $q.defer();
 	getListings();
 
-
+	$scope.Math = window.Math;
+	$scope.rev = function (num) {
+		return num%4;
+	};
 		function getListings(){$http.get(baseUrl+'api/products').success(function(response) {
 			if(response) {
 				$scope.items = [];
