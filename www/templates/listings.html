@@ -20,13 +20,12 @@
         <ion-content has-tabs="true" on-refresh="onRefresh()">
 
           <ion-refresher></ion-refresher>
-  <div class="contents feed"   ng-repeat="item in items"   item="item">
+  <div class="contents feed"   ng-repeat="item in items">
   <a href="/#/details/{{item.id}}">
-		<div class="row container" ng-model="item">
+		<div class="row container">
 			<div class="row-content">
 		<div class="image">
-      <img ng-repeat="pic in item.preview " ng-src="img/attachments/{{pic}}">
-      <img ng-src="img/attachments/{{item.preview}}"/>
+      <img ng-src="{{item.preview}}"/>
       <div class="circle" >2</div>
     </div>
 				<div class="price pull-right">${{item.price}}</div>
@@ -65,8 +64,7 @@
       </ion-header-bar>
       <ion-content has-tabs="true" on-refresh="onRefresh()">
       <div class="bio">
-        <div class="image"><img src="images/kenny.png"></div>
-        <div class="summary">Franck is a college student who majoring in Finance &amp; decision sciences wants to make the world a better place through entrepeneurship</div>
+        <div class="image"><img src="img/franck.jpg"/ width="100px" height="100px" style="display:inline">        <div class="summary">Franck is a college student who majoring in Finance &amp; decision sciences wants to make the world a better place through entrepeneurship</div></div>
       </div>
       <div class="tabular">
         <div class="col-xs-6">I offer</div><div class="col-xs-6 active">I Need</div>
