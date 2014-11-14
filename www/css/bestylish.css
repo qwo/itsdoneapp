@@ -132,8 +132,8 @@ body, html, .contents{
 }
 
 .user_detail .image{
-	height:100%;
-	padding-right:10px;
+	float: left;
+	padding-right: 15px;
 }
 
 .user_detail .image > img{

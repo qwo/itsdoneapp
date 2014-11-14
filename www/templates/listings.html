@@ -25,7 +25,7 @@
 		<div class="row container">
 			<div class="row-content">
 		<div class="image">
-      <img ng-src="{{item.preview}}"/>
+      <img ng-src="img/attachments/{{item.price}}.jpg"/>
       <div class="circle" >2</div>
     </div>
 				<div class="price pull-right">${{item.price}}</div>
@@ -64,8 +64,9 @@
       </ion-header-bar>
       <ion-content has-tabs="true" on-refresh="onRefresh()">
       <div class="bio">
-        <div class="image"><img src="img/franck.jpg"/ width="100px" height="100px" style="display:inline">        <div class="summary">Franck is a college student who majoring in Finance &amp; decision sciences wants to make the world a better place through entrepeneurship</div></div>
+        <div class="image"><img src="img/franck.jpg"/ width="100px" height="100px"</div>
       </div>
+      <div class="summary">Franck is a college student who majoring in Finance &amp; decision sciences wants to make the world a better place through entrepeneurship</div>
       <div class="tabular">
         <div class="col-xs-6">I offer</div><div class="col-xs-6 active">I Need</div>
       </div>
