@@ -27,7 +27,9 @@ angular.module('chat.controllers', ['services', 'angularPayments'])
     deferred.reject(error);
   });
 }
-
+  // $scope.subscribe = function () {
+  //   // body...
+  // };
   $scope.handleStripe = function(status, response){
     console.log(response);
     alert('crud!');

@@ -1,14 +1,15 @@
-    <ion-header-bar class="bar-positive">
+    <ion-header-bar class="bar-positive" style="background-color:#48C37D">
       <div class="buttons">
-        <button class="button" ng-click="Back()">Back</button>
+        <button class="button button-clear" style="background-color:#48C37D" ng-click="Back()">Back</button>
       </div> <!-- Chatting in {{activeChannel}} -->
       <h1 class="title"> {{item.title}}</h1>
+      <button class="button button-clear" style="background-color:#48C37D" ng-click="itsdone()">itsDone</button>
     </ion-header-bar>
     <ion-content>
 
       <div class="list">
           <div class="item item-avatar" ng-repeat="message in messages">
-            <img src="img/venkman.jpg" alt="{{message.time}}">
+            <!--<img src="img/venkman.jpg" alt="{{message.time}}">-->
             <h2>{{message.name}}</h2>
             <p>{{message.message}}</p>
           </div>
@@ -21,7 +22,7 @@
           <i class="icon placeholder-icon"></i>
           <input type="text" placeholder="Type Message Here.." ng-model="draft.message">
         </label>
-        <button class="button button-positive" ng-click="sendMessage(draft)">
+        <button class="button button-positive" style="background-color:#48C37D" ng-click="sendMessage(draft)">
           Send
         </button>
       </div>

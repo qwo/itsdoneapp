@@ -7,7 +7,7 @@
     <!-- Modal content area -->
 <ion-content ng-controller="StagingCtrl" ng-model="details">
 
-<div class="contents item_detail">
+<div class="contents item_detail" ng-model="subscribe">
 
     <div class="item_info container">
       <h2 style="	color:#fff;">{{details.title}}</h2>
@@ -29,7 +29,7 @@
     <div class="item_description container">
     {{details.description}}</div>
     <div class ="container">
-      <h1>When do you need itdone?</h1>
+      <h2>When do you need it done?</h2>
        <select class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
         <option value="now">Now</option>
         <option value="today">Sometime Today</option>
@@ -39,9 +39,10 @@
     </div>
     <div class="item_buy container">
       <!-- /#/payment/{{details._id}}?query=price payment url-->
-      <a href="/#/listings?query=myuser "><div class="btn"> Request ${{details.price}}</div></a>
+      <a href="/#/service/{{details.id}} "><div class="btn"> Request ${{details.price}}</div></a>
       </div>
-    <div class="review container">Reviews <span class="glyphicon glyphicon-chevron-right"></span></div>
+    <div class="review container">Reviews <span class="glyphicon glyphicon-chevron-right"></span>
+    </div>
 
   </div>
     </ion-content>
