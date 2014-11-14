@@ -11,6 +11,11 @@
           <h1 class="title">Services</h1>
           <ion-nav-back-button class="button-icon ion-arrow-left-c">
           </ion-nav-back-button>
+          <ion-nav-buttons side="left">
+      <button class="button" ng-click="doSomething()">
+        I'm a button on the left of the navbar!
+      </button>
+    </ion-nav-buttons>
         </ion-header-bar>
         <ion-content has-tabs="true" on-refresh="onRefresh()">
 
@@ -53,7 +58,7 @@
         <div class="image"><img src="images/kenny.png"></div>
         <div class="summary">Kenny is a third- then fourth-grade student who commonly has extraordinary experiences not typical of conventional small-town life.</div>
       </div>
-      <div class="tabs">
+      <div class="tabular">
         <div class="col-xs-6 active">I offer</div><div class="col-xs-6">I Need</div>
       </div>
         <div id="profile" class="center">
