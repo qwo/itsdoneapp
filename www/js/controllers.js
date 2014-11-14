@@ -53,8 +53,6 @@ angular.module('starter.controllers', ['services'])
 			task.price = "";
 		};
 
-
-
 		// Open our new task modal
 		$scope.newTask = function() {
 			$scope.taskModal.show();

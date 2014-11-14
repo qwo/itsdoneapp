@@ -1,3 +1,37 @@
-<div ng-click="sayHello()">
-This is the view for item $scope.item
-</div>
+<ion-nav-bar class="bar-positive nav-title-slide-ios7">
+  <div class="buttons">
+    <button class="button" ng-click="Back()">Back</button>
+  </div>
+</ion-nav-bar>
+
+    <!-- Modal content area -->
+<ion-content ng-controller="StagingCtrl" ng-model="details">
+
+<div class="contents item_detail">
+
+    <div class="item_info container">
+      <h2 style="	color:#fff;">{{details.title}}</h2>
+      <h3 style="	color:#fff;">{{details.provider}}<span class="glyphicon glyphicon-chevron-right"></span></h3>
+      <div class="rate">
+        <span class="glyphicon glyphicon-star"></span>
+        <span class="glyphicon glyphicon-star"></span>
+        <span class="glyphicon glyphicon-star"></span>
+        <span class="glyphicon glyphicon-star"></span>
+        <span class="glyphicon glyphicon-star-empty"></span>
+      </div>
+      <div class="price">${{details.price}}</div>
+    </div>
+    <div class="item_images">
+      <div class="item_image"><img src="images/kyle.png"></div>
+      <div class="item_image"><img src="images/eric.png"></div>
+      <div class="item_image"><img src="images/stan.png"></div>
+    </div>
+    <div class="item_description container">
+    {{details.description}}</div>
+    <div class="item_buy container">
+      <a href="/#/payment/{{details._id}}?query=price"><div class="btn">Buy ($20)</div></a>
+      </div>
+    <div class="review container">Reviews <span class="glyphicon glyphicon-chevron-right"></span></div>
+
+  </div>
+    </ion-content>
