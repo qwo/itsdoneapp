@@ -38,16 +38,24 @@
         </header>
 
         <ion-content has-header="true">
-          <br>
-          <br>
-          <h1>Content Here</h1>
-          <h1>Shows active/past services you bought and other one shows services active sold.</h1>
+
         </ion-content>
       </ion-tab>
 
       <ion-tab title="Profile" icon-on="icon ion-ios7-person" icon-off="ion-ios7-person-outline" ng-controller="UserCtrl" >
-
-
+      <ion-header-bar class="bar-positive header" style="background-color:#48C37D">
+        <h1 class="title">Services</h1>
+        <ion-nav-back-button class="button-icon ion-arrow-left-c">
+        </ion-nav-back-button>
+      </ion-header-bar>
+      <ion-content has-tabs="true" on-refresh="onRefresh()">
+      <div class="bio">
+        <div class="image"><img src="images/kenny.png"></div>
+        <div class="summary">Kenny is a third- then fourth-grade student who commonly has extraordinary experiences not typical of conventional small-town life.</div>
+      </div>
+      <div class="tabs">
+        <div class="col-xs-6 active">I offer</div><div class="col-xs-6">I Need</div>
+      </div>
         <div id="profile" class="center">
             <img src="http://placehold.it/250x200">
             <div class="buttons">
