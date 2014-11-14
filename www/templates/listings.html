@@ -51,7 +51,10 @@
       <ion-header-bar class="bar-positive header" style="background-color:#48C37D">
         <h1 class="title">Services</h1>
         <ion-nav-back-button class="button-icon ion-arrow-left-c">
-        </ion-nav-back-button>
+      </ion-nav-back-button><button class="button button-clear " ng-click="newTask()">What can you do?
+<i class="icon ion-compose"></i>
+</button>
+        <button class="button button-clear button-positive" ng-click="logout()">Logout</button>
       </ion-header-bar>
       <ion-content has-tabs="true" on-refresh="onRefresh()">
       <div class="bio">
@@ -65,10 +68,6 @@
             <img src="http://placehold.it/250x200">
             <div class="buttons">
             <img src="http://css-stars.com/wp-content/uploads/2013/12/4-stars.jpg" alt="stars" height="25px" width="100px"/>
-              <button class="button button-icon" ng-click="newTask()">What can you do?
-      <i class="icon ion-compose"></i>
-    </button>
-             <button class="button button-icon icon ion-log-out" ng-click="logout()">Log Out </button>
            </div>
         </div>
 
