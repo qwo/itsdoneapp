@@ -15,9 +15,6 @@
           <ion-nav-back-button class="button-icon ion-arrow-left-c">
           </ion-nav-back-button>
           <ion-nav-buttons side="left">
-      <button class="button" ng-click="doSomething()">
-        I'm a button on the left of the navbar!
-      </button>
     </ion-nav-buttons>
         </ion-header-bar>
         <ion-content has-tabs="true" on-refresh="onRefresh()">
@@ -27,7 +24,11 @@
   <a href="/#/details/{{item.id}}">
 		<div class="row container" ng-model="item">
 			<div class="row-content">
-				<div class="image"><img src="img/kyle.png"><div class="circle" >2</div></div>
+		<div class="image">
+      <img ng-repeat="pic in item.preview " ng-src="img/attachments/{{pic}}">
+      <img ng-src="img/attachments/{{item.preview}}"/>
+      <div class="circle" >2</div>
+    </div>
 				<div class="price pull-right">${{item.price}}</div>
 				<div class="info">
 					<div class="name">{{item.title}}</div>
@@ -65,7 +66,7 @@
       <ion-content has-tabs="true" on-refresh="onRefresh()">
       <div class="bio">
         <div class="image"><img src="images/kenny.png"></div>
-        <div class="summary">Franck is a college student who majoring in Business and wants to make the world a better place through entrepeneurship</div>
+        <div class="summary">Franck is a college student who majoring in Finance &amp; decision sciences wants to make the world a better place through entrepeneurship</div>
       </div>
       <div class="tabular">
         <div class="col-xs-6">I offer</div><div class="col-xs-6 active">I Need</div>
