@@ -7,7 +7,7 @@ Screenshots
 ---
 **Tip click and drag to view a screenshot longer**   
 
-<a href="http://imgur.com/5dmJ9RG"><img src="http://i.imgur.com/5dmJ9RG.gif" title="source: imgur.com" width="300px": /></a>
+![img](http://i.imgur.com/5dmJ9RG.gif)
 
 Built with ionic
 ---
