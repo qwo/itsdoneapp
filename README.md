@@ -7,7 +7,7 @@ Screenshots
 ---
 **Tip click and drag to view a screenshot longer**   
 
-![img](http://i.imgur.com/5dmJ9RG.gif)
+[External gif screenshots](http://i.imgur.com/5dmJ9RG.gif)
 
 Built with ionic
 ---
